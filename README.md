@@ -1,5 +1,5 @@
 # Jogo da Velha em C
-Um jogo da velha simples, desenvolvido em C.
+Um jogo da velha simples, desenvolvido em C. Foi desenvolvido para sistemas Windows, alterações no código serão necessárias para funcionar em sistemas Linux;
 
 ### Funcionalidades
 - Jogar contra um jogador.
