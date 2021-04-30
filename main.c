@@ -7,7 +7,7 @@
 #define L 20 /* Linhas */
 #define C 41 /* Colunas */
 
-void imprimirTabuleiro(int** tabuleiro); /* Imprime o tabuleiro com as marcaÃ§Ãµes X e O */
+void imprimirTabuleiro(int** tabuleiro); /* Imprime o tabuleiro com as marcações X e O */
 void posicionarCursor(int x, int y) ; /* Posiciona o cursor do console dada as coordenadas x e y */
 int jogarPC(int** tabuleiro); /* Seleciona uma jogada para o computador */
 int verificarVencedor(int** tabuleiro); /* Verifica o resultado da partida, se houve vencedor ou se houve empate */
@@ -20,7 +20,7 @@ int verificarVencedor(int** tabuleiro); /* Verifica o resultado da partida, se h
 */
 
 int main(void){
-    /* DeclaraÃ§Ã£o das variÃ¡veis */
+    /* Declaração das variáveis */
     int** tabuleiro = (int**) malloc(3 * sizeof(int*));
     int game = -1, score = 0, highScore = 0, vencedor = 0, i = 0, j = 0, vez = 0, x = 0, o = 0;
     unsigned char tecla;
@@ -35,7 +35,7 @@ int main(void){
     /* Abre o arquivo de highScore e acessa o valor */
     pRanking = fopen("HighScore.txt", "r");
     if (pRanking == NULL) {
-        printf("Erro na criaÃ§Ã£o do arquivo!");
+        printf("Erro na criacao do arquivo!");
         system("pause");
         return 1;
     }
@@ -49,7 +49,7 @@ int main(void){
     Casa com O = 2
     */
 
-    /* Seta o cursor na primeira posiÃ§Ã£o */
+    /* Seta o cursor na primeira posição */
     i = 0; j = 0;
     tabuleiro [i][j] = -1;
 
@@ -76,11 +76,11 @@ int main(void){
     do {
         while (game == 0) {
 
-            /* Se a vez for par, Ã© a vez do X */
+            /* Se a vez for par, é a vez do X */
             if (vez % 2 == 0) {
                 tecla = getch();
 
-                if (tabuleiro[i][j] == -1) tabuleiro [i][j] = 0; /* Limpa a posiÃ§Ã£o anteiror do cursor */
+                if (tabuleiro[i][j] == -1) tabuleiro [i][j] = 0; /* Limpa a posição anteiror do cursor */
 
                 /* Caso apertar Enter preenche a casa com X, caso apertar alguma tecla move o cusror*/
                 if (tecla == 13) {
@@ -91,14 +91,14 @@ int main(void){
                 else if (tecla == 72) i--;
                 else if (tecla == 80) i++;
 
-                /* Caso passar do limite das linhas ou colunas, comeÃ§a da primeira */
+                /* Caso passar do limite das linhas ou colunas, começa da primeira */
                 if (i > 2)  i = 0;
                 else if(i < 0)  i = 2;
                 else if(j > 2)  j = 0;
                 else if(j < 0) j = 2;
 
-                if (tabuleiro[i][j] == 0) tabuleiro [i][j] = -1; /* Preenche a posiÃ§Ã£o do cursor */            
-            } else { /* Se a vez for impar, Ã© a vez do O */
+                if (tabuleiro[i][j] == 0) tabuleiro [i][j] = -1; /* Preenche a posição do cursor */            
+            } else { /* Se a vez for impar, é a vez do O */
                 if (!jogarPC(tabuleiro)) {
                     printf("Erro ao computador jogar!\n");
                     posicionarCursor(0, 0);
@@ -124,7 +124,7 @@ int main(void){
                         score++;
                         pRanking = fopen("HighScore.txt", "r");
                         if (pRanking == NULL) {
-                                printf("Erro na criaÃ§Ã£o do arquivo!");
+                                printf("Erro na criacao do arquivo!");
                                 system("pause");
                                 return 1;
                         }
@@ -161,11 +161,11 @@ int main(void){
         }
 
         while (game == 1) {
-            /* Se a vez for par, Ã© a vez do X */
+            /* Se a vez for par, é a vez do X */
             if (vez % 2 == 0) {
                 tecla = getch();
 
-                if (tabuleiro[i][j] == -1) tabuleiro [i][j] = 0; /* Limpa a posiÃ§Ã£o anteiror do cursor */
+                if (tabuleiro[i][j] == -1) tabuleiro [i][j] = 0; /* Limpa a posição anteiror do cursor */
 
                 /* Caso apertar Enter preenche a casa com X, caso apertar alguma tecla move o cusror*/
                 if (tecla == 13) {
@@ -176,18 +176,18 @@ int main(void){
                 else if (tecla == 72) i--;
                 else if (tecla == 80) i++;
 
-                /* Caso passar do limite das linhas ou colunas, comeÃ§a da primeira */
+                /* Caso passar do limite das linhas ou colunas, começa da primeira */
                 if(i > 2)  i = 0;
                 else if(i < 0)  i = 2;
                 else if(j > 2)  j = 0;
                 else if(j < 0) j = 2;
 
-                if (tabuleiro[i][j] == 0) tabuleiro [i][j] = -1; /* Preenche a posiÃ§Ã£o do cursor */            
+                if (tabuleiro[i][j] == 0) tabuleiro [i][j] = -1; /* Preenche a posição do cursor */            
             } else { 
-                /* Se a vez for impar, Ã© a vez do O */
+                /* Se a vez for impar, é a vez do O */
                 tecla = getch();
 
-                if (tabuleiro[i][j] == -1) tabuleiro [i][j] = 0; /* Limpa a posiÃ§Ã£o anteiror do cursor */
+                if (tabuleiro[i][j] == -1) tabuleiro [i][j] = 0; /* Limpa a posição anteiror do cursor */
 
                 /* Caso apertar Enter preenche a casa com X, caso apertar alguma tecla move o cusror*/
                 if (tecla == 13) {
@@ -198,13 +198,13 @@ int main(void){
                 else if (tecla == 72) i--;
                 else if (tecla == 80) i++;
 
-                /* Caso passar do limite das linhas ou colunas, comeÃ§a da primeira */
+                /* Caso passar do limite das linhas ou colunas, começa da primeira */
                 if(i > 2)  i = 0;
                 else if(i < 0)  i = 2;
                 else if(j > 2)  j = 0;
                 else if(j < 0) j = 2;
 
-                if (tabuleiro[i][j] == 0) tabuleiro [i][j] = -1; /* Preenche a posiÃ§Ã£o do cursor */
+                if (tabuleiro[i][j] == 0) tabuleiro [i][j] = -1; /* Preenche a posição do cursor */
             }
 
             posicionarCursor(0, 0);
@@ -251,7 +251,7 @@ int main(void){
         }
     } while (game != -1);
 
-    /* Libera a memÃ³ria */
+    /* Libera a memória */
     free(tabuleiro);
     for (i = 0; i < 3; i++) free(tabuleiro [i]);
 
@@ -259,7 +259,7 @@ int main(void){
 }
 
 void imprimirTabuleiro(int** tabuleiro) {
-    /* VariÃ¡veis de controle */
+    /* Variáveis de controle */
     int i, j;
     int a = 0;
     int b = 0;
@@ -293,11 +293,11 @@ void imprimirTabuleiro(int** tabuleiro) {
                 else if(j == C - 1) printf("%c\n", 186);
                     else {
                         if (j == C - 2 ) printf("  ");
-                        else { /* Imprime o conteÃºdo das casas, caso houver algum */ 
+                        else { /* Imprime o conteúdo das casas, caso houver algum */ 
                             if (tabuleiro [a][b] == -1 && (i == 2 || i == 9 || i == 16) && (j == 6 || j == 20 || j == 34)) printf("_"); 
                             else if(tabuleiro[a][b] == 1 && (i == 2 || i == 9 || i == 16) && (j == 6 || j == 20 || j == 34)) printf("X");
                             else if(tabuleiro[a][b] == 2 && (i == 2 || i == 9 || i == 16) && (j == 6 || j == 20 || j == 34)) printf("O");
-                            else printf(" "); /* Caso nÃ£o tiver nada, deixa em branco */
+                            else printf(" "); /* Caso não tiver nada, deixa em branco */
                         }                         
                     } 
             }
@@ -313,7 +313,7 @@ void imprimirTabuleiro(int** tabuleiro) {
 }
 
 void posicionarCursor(int x, int y) {
-    /* Seta o cursor do console para a primeira posiÃ§Ã£o */
+    /* Seta o cursor do console para a primeira posição */
     HANDLE hOut;
     COORD Position;
 
@@ -326,11 +326,11 @@ void posicionarCursor(int x, int y) {
 }
 
 int jogarPC(int** tabuleiro) {
-    /* VariÃ¡veis de controle */
+    /* Variáveis de controle */
     int i, j, k = 0, s = 0, temp[2] = {0, 0};
     
     for (i = 0; i < 3; i++) {
-        /* Verificar nas linhas se hÃ¡ derrota ou vitÃ³ria eminentes, sem prioridades para ficar mais fÃ¡cil para o jogador */
+        /* Verificar nas linhas se há derrota ou vitória eminentes, sem prioridades para ficar mais fácil para o jogador */
         for (j = 0; j < 3; j++) { 
             if (tabuleiro[i][j] != 0 ) {
                 s += j;
@@ -347,7 +347,7 @@ int jogarPC(int** tabuleiro) {
         k = 0;
         s = 0;
 
-        /* Verificar nas colunas se hÃ¡ derrota ou vitÃ³ria eminentes, sem prioridades para ficar mais fÃ¡cil para o jogador */
+        /* Verificar nas colunas se há derrota ou vitória eminentes, sem prioridades para ficar mais fácil para o jogador */
         for (j = 0; j < 3; j++) { 
             if(tabuleiro[j][i] != 0){
                 s += j;  
@@ -395,7 +395,7 @@ int jogarPC(int** tabuleiro) {
 }
 
 int verificarVencedor(int** tabuleiro){
-    /* VariÃ¡veis de controle */
+    /* Variáveis de controle */
     int i, j, k = 0;
 
     /* Caso o X ganhar, retorna 1 */
@@ -427,6 +427,6 @@ int verificarVencedor(int** tabuleiro){
                 if (tabuleiro[i][j] < 1) k++;
 
         if (k == 0) return 3; /* Se empatar, retorna 3 */
-        else return 0; /* Se nÃ£o houve ganhador ou empate, retorna 0 */
+        else return 0; /* Se não houve ganhador ou empate, retorna 0 */
     }
 }
